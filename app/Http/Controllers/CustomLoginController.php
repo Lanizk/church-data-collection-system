@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class CustomLoginController extends Controller
 {
@@ -15,6 +16,9 @@ class CustomLoginController extends Controller
 
     public function login(Request $request)
     {
+        Log::info('Login attempt started');
+        dd('Controller reached'); 
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
