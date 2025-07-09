@@ -11,25 +11,26 @@ class CustomLoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login'); // custom Blade login
+        return view('logintest'); // custom Blade login
     }
 
     public function login(Request $request)
     {
-        Log::info('Login attempt started');
-        dd('Controller reached'); 
+       
 
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
+        $credentials = $request->only('email', 'password');
+
         if (Auth::attempt($credentials)) {
     $request->session()->regenerate();
 
     $user = Auth::user();
 
-    if ($user->role === 'bishop') {
+    if ($user->role === 'admin') {
         return redirect()->intended('/admin/dashboard');
     } elseif ($user->role === 'accountant') {
         return redirect()->intended('/accountant/dashboard');

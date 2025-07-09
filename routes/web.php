@@ -15,19 +15,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
 
-Route::any('/test', function() {
-    dd('Laravel is working!');
+
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'showAdminDashboard']);
 });
 
-// Route::middleware(['auth', 'role:admin'])->group(function () {
-//     Route::get('/bishop/dashboard', [AdminDashboardController::class, 'index']);
-// });
+Route::middleware(['auth', 'role:parish'])->group(function () {
+    Route::get('/parish/dashboard', [ParishDashboardController::class, 'index']);
+});
 
-// Route::middleware(['auth', 'role:parish'])->group(function () {
-//     Route::get('/parish/dashboard', [ParishDashboardController::class, 'index']);
-// });
-
-// Route::middleware(['auth', 'role:accountant'])->group(function () {
-//     Route::get('/parish/dashboard', [ParishDashboardController::class, 'index']);
-// });
+Route::middleware(['auth', 'role:accountant'])->group(function () {
+    Route::get('/parish/dashboard', [ParishDashboardController::class, 'index']);
+});
 
