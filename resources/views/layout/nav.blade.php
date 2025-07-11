@@ -1,16 +1,5 @@
 
-    <div class="pre-loader">
-		<div class="pre-loader-box">
-			<div class="loader-logo"><img src="/vendors/images/deskapp-logo.svg" alt=""></div>
-			<div class='loader-progress' id="progress_div">
-				<div class='bar' id='bar1'></div>
-			</div>
-			<div class='percent' id='percent1'>0%</div>
-			<div class="loading-text">
-				Loading...
-			</div>
-		</div>
-	</div>
+   
 
 	<div class="header">
 		<div class="header-left">
@@ -238,16 +227,13 @@
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit2"></span><span class="mtext">Forms</span>
+							<span class="micon dw dw-edit2"></span><span class="mtext">Users</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="form-basic.html">Form Basic</a></li>
-							<li><a href="advanced-components.html">Advanced Components</a></li>
-							<li><a href="form-wizard.html">Form Wizard</a></li>
-							<li><a href="html5-editor.html">HTML5 Editor</a></li>
-							<li><a href="form-pickers.html">Form Pickers</a></li>
-							<li><a href="image-cropper.html">Image Cropper</a></li>
-							<li><a href="image-dropzone.html">Image Dropzone</a></li>
+							<li><a href="/admin/admin/list">Admin</a></li>
+							<li><a href="advanced-components.html">Accountant</a></li>
+							<li><a href="form-wizard.html">Parish</a></li>
+							
 						</ul>
 					</li>
 			</div>
