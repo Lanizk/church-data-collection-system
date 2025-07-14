@@ -5,6 +5,8 @@
 
 @section('content')	
     
+@include('_message') 
+
 
 <div class="page-header">
 					<div class="row">
@@ -39,7 +41,7 @@
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Parish Name</label>
 							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="parish_name" type="text" placeholder="Johnny Brown">
+								<input class="form-control" name="name" type="text" placeholder="Johnny Brown">
 							</div>
 						</div>
 						

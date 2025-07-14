@@ -31,6 +31,7 @@
 	</script>
 </head>
 <body class="login-page">
+	@include('_message')
 	<div class="login-header box-shadow">
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
