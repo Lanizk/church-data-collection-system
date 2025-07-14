@@ -33,6 +33,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 
+    Route::get('/admin/parish/list', [ParishController::class, 'list']);
+    Route::get('/admin/parish/add', [ParishController::class, 'add']);
+    Route::post('admin/parish/add', [ParishController::class, 'Insert']);
+    Route::get('admin/parish/delete/{id}', [ParishController::class, 'delete']);
+    Route::get('admin/parish/edit/{id}', [ParishController::class, 'edit']);
+    Route::post('admin/parish/edit/{id}', [ParishController::class, 'update']);
+
+
+
 
 });
 

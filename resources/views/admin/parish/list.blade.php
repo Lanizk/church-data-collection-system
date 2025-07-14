@@ -28,7 +28,7 @@
 									Add Admin
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="/admin/admin/add">Add Admin</a>
+									<a class="dropdown-item" href="/admin/parish/add">Add Admin</a>
 									
 								</div>
 							</div>
@@ -60,14 +60,21 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach($parishes as $parish)
 							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-								<td><span class="badge badge-primary">Primary</span></td>
+					<td>{{ $parish ->id }}</td>
+                    <td>{{ $parish->parish_name }}</td>
+                    <td>{{ $parish->email }}</td>
+                    <td>{{ $parish->parish_number }}</td>
+                    <td>{{ $parish->telephone }}</td>
+                    <td>{{ $parish->created_by }}</td>
+                    <td>
+					<a href="{{url('admin/parish/edit/' . $parish->id)}}" class="btn btn-outline-success">Edit</a>
+					<a href="{{url('admin/parish/delete/' . $parish->id)}}" class="btn btn-outline-danger">Delete</button>
+								
+					<td>
 							</tr>
-							
+							@endforeach
 						</tbody>
 					</table>
 					<div class="collapse collapse-box" id="striped-table">
@@ -98,9 +105,9 @@
 
 
 
-
 </div>
 </div>
+@endsection
 
 
 							
@@ -109,4 +116,3 @@
 
 
 
-@endsection
