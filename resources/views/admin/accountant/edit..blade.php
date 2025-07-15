@@ -36,7 +36,7 @@
 						</div>
 						
 					</div>
-					<form   method="POST"  action="{{ url('admin/parish/edit/' . $parish->id) }}">
+					<form   method="POST"  action="{{ url('admin/parish/edit/' . $accounts->id) }}">
 						@csrf
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Parish Name</label>

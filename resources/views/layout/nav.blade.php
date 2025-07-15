@@ -230,9 +230,9 @@
 							<span class="micon dw dw-edit2"></span><span class="mtext">Users</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="/admin/parish/list">Admin</a></li>
-							<li><a href="advanced-components.html">Accountant</a></li>
-							<li><a href="form-wizard.html">Parish</a></li>
+							<li><a href="/admin/admin/list">Admin</a></li>
+							<li><a href="/admin/accountant/list">Accountant</a></li>
+							<li><a href="/admin/parish/list">Parish</a></li>
 							
 						</ul>
 					</li>

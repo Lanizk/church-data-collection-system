@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Add Parish')
+@section('title', 'Add Accountant')
 
 
 @section('content')	
@@ -16,8 +16,8 @@
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Parish</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Add Parish</li>
+									<li class="breadcrumb-item"><a href="index.html">Accountant</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Add Accountant</li>
 								</ol>
 							</nav>
 						</div>
@@ -30,16 +30,16 @@
     <div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Parish Add Form</h4>
-                            <p class="mb-30">All parish details added here</p>
+							<h4 class="text-blue h4">Accountant Add Form</h4>
+                            <p class="mb-30">All Accountant details added here</p>
 							
 						</div>
 						
 					</div>
-					<form   method="POST"  action="/admin/parish/add">
+					<form   method="POST"  action="/admin/accountant/add">
 						@csrf
 						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Parish Name</label>
+							<label class="col-sm-12 col-md-2 col-form-label">Accountant Name</label>
 							<div class="col-sm-12 col-md-10">
 								<input class="form-control" name="name" type="text" placeholder="Johnny Brown">
 							</div>

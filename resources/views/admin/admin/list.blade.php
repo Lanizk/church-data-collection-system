@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'ParishList')
+@section('title', 'AdminList')
 
 
 @section('content')
@@ -13,22 +13,22 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>Parish List</h4>
+								<h4>Admin List</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Parish List</li>
+									<li class="breadcrumb-item active" aria-current="page">Admin List</li>
 								</ol>
 							</nav>
 						</div>
 						<div class="col-md-6 col-sm-12 text-right">
 							<div class="dropdown">
 								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									Add Parish
+									Add Admin
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="/admin/parish/add">Add Parish</a>
+									<a class="dropdown-item" href="/admin/admin/add">Add Admin</a>
 									
 								</div>
 							</div>
@@ -42,7 +42,7 @@
                 <div class="pd-20 card-box mb-30">
 					<div class="clearfix mb-20">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Parish List</h4>
+							<h4 class="text-blue h4">Admin List</h4>
 							
 						</div>
 						
@@ -51,26 +51,26 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Parish Name</th>
+								<th scope="col">Admin Name</th>
 								<th scope="col">Email</th>
-								<th scope="col">Parish No</th>
+								
 								<th scope="col">Phone No</th>
 								<th scope="col">Created By</th>
 								<th scope="col">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($parishes as $parish)
+							@foreach($admins as $admin)
 							<tr>
-					<td>{{ $parish ->id }}</td>
-                    <td>{{ $parish->name }}</td>
-                    <td>{{ $parish->email }}</td>
-                    <td>{{ $parish->parish_number }}</td>
-                    <td>{{ $parish->telephone }}</td>
-                    <td>{{ $parish->created_by }}</td>
+					<td>{{ $admin ->id }}</td>
+                    <td>{{ $admin->name }}</td>
+                    <td>{{ $admin->email }}</td>
+                    
+                    <td>{{ $admin->telephone }}</td>
+                    <td>{{ $admin->created_by }}</td>
                     <td>
-					<a href="{{url('admin/parish/edit/' . $parish->id)}}" class="btn btn-outline-success">Edit</a>
-					<a href="{{url('admin/parish/delete/' . $parish->id)}}" class="btn btn-outline-danger">Delete</button>
+					<a href="{{url('admin/admin/edit/' . $admin->id)}}" class="btn btn-outline-success">Edit</a>
+					<a href="{{url('admin/admin/delete/' . $admin->id)}}" class="btn btn-outline-danger">Delete</button>
 								
 					<td>
 							</tr>

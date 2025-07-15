@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Edit Parish')
+@section('title', 'Edit Admin')
 
 
 @section('content')
@@ -16,8 +16,8 @@
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Parish</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Edit Parish</li>
+									<li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Edit Admin</li>
 								</ol>
 							</nav>
 						</div>
@@ -30,44 +30,38 @@
     <div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Parish Edit Form</h4>
-                            <p class="mb-30">All parish details edited here</p>
+							<h4 class="text-blue h4">Admin Edit Form</h4>
+                            <p class="mb-30">All Admin details edited here</p>
 							
 						</div>
 						
 					</div>
-					<form   method="POST"  action="{{ url('admin/parish/edit/' . $parish->id) }}">
+					<form   method="POST"  action="{{ url('admin/admin/edit/' . $admin->id) }}">
 						@csrf
 						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Parish Name</label>
+							<label class="col-sm-12 col-md-2 col-form-label">Admin Name</label>
 							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="name" type="text"  value="{{ old('name', $parish->name) }}">
+								<input class="form-control" name="name" type="text"  value="{{ old('name', $admin->name) }}">
 							</div>
 						</div>
 						
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Email</label>
 							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="email"  value="{{ old('email', $parish->email) }}" type="email">
+								<input class="form-control" name="email"  value="{{ old('email', $admin->email) }}" type="email">
 							</div>
 						</div>
 						
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Telephone</label>
 							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="telephone"  value="{{ old('telephone', $parish->telephone) }}" type="tel">
+								<input class="form-control" name="telephone"  value="{{ old('telephone', $admin->telephone) }}" type="tel">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Password</label>
 							<div class="col-sm-12 col-md-10">
 								<input class="form-control" name="password"  placeholder="Enter new password" type="password">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Number</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="parish_number"  value="{{ old('parish_number', $parish->parish_number) }}" type="number">
 							</div>
 						</div>
 						

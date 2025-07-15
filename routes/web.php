@@ -28,8 +28,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/admin/add', [adminController::class, 'add']);
     Route::post('admin/admin/add', [adminController::class, 'Insert']);
     Route::get('admin/admin/delete/{id}', [adminController::class, 'delete']);
-    Route::get('admin/admin/edit{id}', [adminController::class, 'edit']);
-    Route::post('admin/admin/edit{id}', [adminController::class, 'update']);
+    Route::get('admin/admin/edit/{id}', [adminController::class, 'edit']);
+    Route::post('admin/admin/edit/{id}', [adminController::class, 'update']);
 
 
 

@@ -29,7 +29,7 @@ class ParishController extends Controller
       {
     $request->validate([
         'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:parishes',
+        'email' => 'required|email|unique:users',
         'password' => 'required|string|min:6',
         'parish_number' => 'required|string|unique:parishes',
         'telephone' => 'required|string|max:20',
@@ -62,7 +62,7 @@ class ParishController extends Controller
 {
     $request->validate([
         'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:parishes,email,' . $id,
+        'email' => 'required|email|unique:users,email,' . $id,
         'parish_number' => 'required|string|unique:parishes,parish_number,' . $id,
         'telephone' => 'required|string|max:20',
         'password' => 'nullable|string|min:6',
