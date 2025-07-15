@@ -41,6 +41,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('admin/parish/edit/{id}', [ParishController::class, 'update']);
 
 
+    Route::get('/admin/accountant/list', [AccountantController::class, 'list']);
+    Route::get('/admin/accountant/add', [AccountantController::class, 'add']);
+    Route::post('admin/accountant/add', [AccountantController::class, 'Insert']);
+    Route::get('admin/accountant/delete/{id}', [AccountantController::class, 'delete']);
+    Route::get('admin/accountant/edit/{id}', [AccountantController::class, 'edit']);
+    Route::post('admin/accountant/edit/{id}', [AccountantController::class, 'update']);
+
+
 
 
 });
