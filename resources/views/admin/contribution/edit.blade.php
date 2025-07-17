@@ -36,7 +36,7 @@
 						</div>
 						
 					</div>
-					<form   method="POST"  action="{{ url('admin/contributions/edit/' . $contributions->id) }}">
+					<form   method="POST"  action="{{ url('admin/contribution/edit/' . $contributions->id) }}">
 						@csrf
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Contribution Name</label>

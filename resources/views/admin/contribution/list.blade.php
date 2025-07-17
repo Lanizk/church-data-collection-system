@@ -63,8 +63,8 @@
                     <td>{{ $contribution->name }}</td>
                     <td>{{ $contribution->creator->created_by }}</td>
                     <td>
-					<a href="{{url('admin/contributions/edit/' . $contribution->id)}}" class="btn btn-outline-success">Edit</a>
-					<a href="{{url('admin/contributions/delete/' . $contribution->id)}}" class="btn btn-outline-danger">Delete</button>
+					<a href="{{url('admin/contribution/edit/' . $contribution->id)}}" class="btn btn-outline-success">Edit</a>
+					<a href="{{url('admin/contribution/delete/' . $contribution->id)}}" class="btn btn-outline-danger">Delete</button>
 								
 					<td>
 							</tr>

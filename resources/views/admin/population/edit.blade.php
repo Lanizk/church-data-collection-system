@@ -36,40 +36,16 @@
 						</div>
 						
 					</div>
-					<form   method="POST"  action="{{ url('admin/parish/edit/' . $parish->id) }}">
+					<form   method="POST"  action="{{ url('admin/population/edit/' . $populations->id) }}">
 						@csrf
 						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Parish Name</label>
+							<label class="col-sm-12 col-md-2 col-form-label">population Category</label>
 							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="name" type="text"  value="{{ old('name', $parish->name) }}">
+								<input class="form-control" name="name" type="text"  value="{{ old('name', $populations->name) }}">
 							</div>
 						</div>
 						
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Email</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="email"  value="{{ old('email', $parish->email) }}" type="email">
-							</div>
-						</div>
 						
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Telephone</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="telephone"  value="{{ old('telephone', $parish->telephone) }}" type="tel">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Password</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="password"  placeholder="Enter new password" type="password">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Number</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="parish_number"  value="{{ old('parish_number', $parish->parish_number) }}" type="number">
-							</div>
-						</div>
 						
                       <div class="d-flex justify-content-end mt-3">
 							<button type="submit" class="btn btn-primary btn-lg">Submit</button>

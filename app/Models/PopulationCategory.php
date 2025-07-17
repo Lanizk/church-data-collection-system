@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PopulationCategory extends Model
 {
      use SoftDeletes;
-     protected $fillable = ['name'];
+     protected $fillable = ['name','created_by'];
 
      public function creator()
     {

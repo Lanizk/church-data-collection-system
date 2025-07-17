@@ -30,46 +30,21 @@
     <div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Parish Add Form</h4>
-                            <p class="mb-30">All parish details added here</p>
+							<h4 class="text-blue h4">Population Add Form</h4>
+                            <p class="mb-30">All population category details added here</p>
 							
 						</div>
 						
 					</div>
-					<form   method="POST"  action="/admin/parish/add">
+					<form   method="POST"  action="/admin/population/add">
 						@csrf
 						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Parish Name</label>
+							<label class="col-sm-12 col-md-2 col-form-label">Population Category</label>
 							<div class="col-sm-12 col-md-10">
 								<input class="form-control" name="name" type="text" placeholder="Johnny Brown">
 							</div>
 						</div>
 						
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Email</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="email" value="bootstrap@example.com" type="email">
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Telephone</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="telephone" value="1-(111)-111-1111" type="tel">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Password</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="password" value="password" type="password">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Number</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" name="parish_number" value="100" type="number">
-							</div>
-						</div>
 						
                       <div class="d-flex justify-content-end mt-3">
 							<button type="submit" class="btn btn-primary btn-lg">Submit</button>

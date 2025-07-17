@@ -47,7 +47,7 @@ class ContributionCategoryController extends Controller
 
  public function edit($id)
     {
-            $contributions=User::findorfail($id);
+            $contributions=ContributionCategory::findorfail($id);
             return view('admin.contribution.edit', compact('contributions'));
         
     }
@@ -59,7 +59,7 @@ class ContributionCategoryController extends Controller
         
     ]);
 
-    $contributions = User::findOrFail($id);
+    $contributions = ContributionCategory::findOrFail($id);
 
     $contributions->name = $request->name;
    
@@ -72,7 +72,7 @@ class ContributionCategoryController extends Controller
 
 
 public function delete($id){
-    $contributions=User::findOrFail($id);
+    $contributions=ContributionCategory::findOrFail($id);
     $contributions->delete();
 
     return redirect()->back()->with('success', 'Contribution deleted successfully.');
