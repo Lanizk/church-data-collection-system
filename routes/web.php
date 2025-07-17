@@ -9,6 +9,7 @@ use App\Http\Controllers\ParishController;
 use App\Http\Controllers\AccountantController;
 use App\Http\Controllers\PopulationCategoryController;
 use App\Http\Controllers\ContributionCategoryController;
+use App\Http\Controllers\ParishSubmissionController;
 
 
 
@@ -78,5 +79,10 @@ Route::middleware(['auth', 'role:parish'])->group(function () {
 
 Route::middleware(['auth', 'role:accountant'])->group(function () {
     Route::get('/accountant/dashboard', [DashboardController::class, 'showAccountantDashboard']);
+
+
+
+    Route::get('parish/submit', [ParishSubmissionController::class, 'index'])->name('parish.submit');
+    Route::post('parish/submit', [ParishSubmissionController::class, 'store'])->name('parish.submit.store');
 });
 

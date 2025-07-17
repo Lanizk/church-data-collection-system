@@ -265,10 +265,10 @@
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit2"></span><span class="mtext">Users</span>
+							<span class="micon dw dw-edit2"></span><span class="mtext">Weekly Data</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="/parish/data/list">Admin</a></li>
+							<li><a href="/parish/submit">Send Data</a></li>
 							
 							
 						</ul>
