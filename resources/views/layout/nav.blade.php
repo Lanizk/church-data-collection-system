@@ -213,6 +213,7 @@
 				<i class="ion-close-round"></i>
 			</div>
 		</div>
+		 @if(Auth::user()->role == 'admin')
 		<div class="menu-block customscroll">
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
@@ -221,8 +222,8 @@
 							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="index.html">Dashboard style 1</a></li>
-							<li><a href="index2.html">Dashboard style 2</a></li>
+							<li><a href="/admin/dashboard">Dashboard</a></li>
+							
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -236,8 +237,47 @@
 							
 						</ul>
 					</li>
+
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-edit2"></span><span class="mtext">Data</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="/admin/contribution/list">Contribution Categories</a></li>
+							<li><a href="/admin/population/list">Population Categories</a></li>
+						</ul>
+					</li>
 			</div>
 		</div>
+		 @elseif(Auth::user()->role == 'parish')
+
+		 <div class="menu-block customscroll">
+			<div class="sidebar-menu">
+				<ul id="accordion-menu">
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="/parish/dashboard">Dashboard</a></li>
+							
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-edit2"></span><span class="mtext">Users</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="/parish/data/list">Admin</a></li>
+							
+							
+						</ul>
+					</li>
+			</div>
+		</div>
+		 @endif
+
+
 	</div>
     <div class="mobile-menu-overlay"></div>
 
