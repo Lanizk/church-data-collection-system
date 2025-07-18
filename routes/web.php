@@ -75,6 +75,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:parish'])->group(function () {
     Route::get('/parish/dashboard', [DashboardController::class, 'showParishDashboard']);
+
+    Route::get('parish/submit', [ParishSubmissionController::class, 'index'])->name('parish.submit');
+    Route::post('parish/submit', [ParishSubmissionController::class, 'store'])->name('parish.submit.store');
+
+    Route::get('/parish/submissions', [ParishSubmissionController::class, 'showDataSubmissions'])->name('parish.submissions');
+
 });
 
 Route::middleware(['auth', 'role:accountant'])->group(function () {
@@ -82,7 +88,6 @@ Route::middleware(['auth', 'role:accountant'])->group(function () {
 
 
 
-    Route::get('parish/submit', [ParishSubmissionController::class, 'index'])->name('parish.submit');
-    Route::post('parish/submit', [ParishSubmissionController::class, 'store'])->name('parish.submit.store');
+   
 });
 

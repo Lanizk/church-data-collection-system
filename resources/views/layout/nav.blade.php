@@ -269,8 +269,9 @@
 						</a>
 						<ul class="submenu">
 							<li><a href="/parish/submit">Send Data</a></li>
-							
-							
+						</ul>
+						<ul class="submenu">
+							<li><a href="/parish/submissions">View Submissions</a></li>
 						</ul>
 					</li>
 			</div>
