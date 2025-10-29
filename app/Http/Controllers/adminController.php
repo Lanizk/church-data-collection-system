@@ -13,7 +13,8 @@ class adminController extends Controller
 
       public function list(){
         
-        $admins=User::where('role', 'admin')->get();;
+        $admins=User::where('role', 'admin')->get();
+        $admins = User::paginate(10); 
         return view('admin.admin.list',compact('admins'));
     }
 

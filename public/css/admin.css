@@ -1,0 +1,351 @@
+/* ===== ADMIN LIST PAGE STYLES ===== */
+
+/* Page Header */
+.page-header-modern {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e9ecef;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb-modern {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.breadcrumb-modern .breadcrumb-item {
+    color: #6c757d;
+}
+
+.breadcrumb-modern .breadcrumb-item + .breadcrumb-item::before {
+    content: '/';
+    padding: 0 0.5rem;
+    color: #dee2e6;
+}
+
+.breadcrumb-modern .breadcrumb-item a {
+    color: #1e40af;
+    text-decoration: none;
+}
+
+.breadcrumb-modern .breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+/* Modern Button */
+.btn-modern {
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn-modern.btn-primary {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
+}
+
+.btn-modern.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.btn-modern.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* Small Stat Cards */
+.stat-card-small {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+}
+
+.stat-card-small:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.stat-icon-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.stat-icon-small.blue {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.stat-icon-small.green {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.stat-value-small {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #212529;
+    line-height: 1;
+}
+
+.stat-label-small {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* Table Card */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+}
+
+.table-card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0.25rem;
+}
+
+.table-card-subtitle {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+.table-search {
+    position: relative;
+    width: 300px;
+}
+
+.table-search input {
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.table-search input:focus {
+    outline: none;
+    border-color: #1e40af;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.table-search i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+/* Modern Table */
+.modern-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.modern-table thead th {
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #495057;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.modern-table tbody td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f1f3f5;
+    vertical-align: middle;
+}
+
+.modern-table tbody tr {
+    transition: background 0.2s;
+}
+
+.modern-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.td-id {
+    font-weight: 600;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* User Cell */
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.user-name-small {
+    font-weight: 600;
+    color: #212529;
+    font-size: 0.9rem;
+}
+
+.user-role-small {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+.email-text, .phone-text, .created-by-text {
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn-action {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e9ecef;
+    background: white;
+    color: #6c757d;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-action.btn-edit:hover {
+    background: #eff6ff;
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.btn-action.btn-delete:hover {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+/* Empty State */
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+/* Table Footer */
+.table-card-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-info {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table-search {
+        width: 100%;
+    }
+
+    .table-card-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-header-modern {
+        padding: 1rem;
+    }
+
+    .page-header-modern > div {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+
+    .btn-modern {
+        justify-content: center;
+    }
+}

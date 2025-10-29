@@ -1,115 +1,166 @@
-@extends('layout.app')
+@extends('layout.app1')
 
-@section('title', 'AdminList')
+@section('title', 'Admin List')
 
+@section('main')
 
-@section('content')
+@include('_message')
 
-@include('_message') 
-
-<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<div class="title">
-								<h4>Admin List</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Admin List</li>
-								</ol>
-							</nav>
-						</div>
-						<div class="col-md-6 col-sm-12 text-right">
-							<div class="dropdown">
-								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									Add Admin
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="/admin/admin/add">Add Admin</a>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-                <div>
+<!-- Page Header -->
+<div class="page-header-modern">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h4 class="page-title">Admin List</h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb-modern">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">Admin List</li>
+                </ol>
+            </nav>
+        </div>
+        <div>
+            <a href="/admin/admin/add" class="btn-modern btn-primary">
+                <i class="bi bi-plus-circle"></i>
+                Add Admin
+            </a>
+        </div>
+    </div>
 </div>
-</div>
-                
 
-                <div class="pd-20 card-box mb-30">
-					<div class="clearfix mb-20">
-						<div class="pull-left">
-							<h4 class="text-blue h4">Admin List</h4>
-							
-						</div>
-						
-					</div>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">Admin Name</th>
-								<th scope="col">Email</th>
-								
-								<th scope="col">Phone No</th>
-								<th scope="col">Created By</th>
-								<th scope="col">Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach($admins as $admin)
-							<tr>
-					<td>{{ $admin ->id }}</td>
-                    <td>{{ $admin->name }}</td>
-                    <td>{{ $admin->email }}</td>
-                    
-                    <td>{{ $admin->telephone }}</td>
-                    <td>{{ $admin->created_by }}</td>
+<!-- Stats Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card-small">
+            <div class="stat-icon-small blue">
+                <i class="bi bi-shield-check"></i>
+            </div>
+            <div>
+                <div class="stat-value-small">{{ $admins->count() }}</div>
+                <div class="stat-label-small">Total Admins</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card-small">
+            <div class="stat-icon-small green">
+                <i class="bi bi-person-check"></i>
+            </div>
+            <div>
+                <div class="stat-value-small">{{ $admins->where('status', 'active')->count() ?? $admins->count() }}</div>
+                <div class="stat-label-small">Active Admins</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Admin Table Card -->
+<div class="table-card">
+    <div class="table-card-header">
+        <div>
+            <h5 class="table-card-title">Administrator Accounts</h5>
+            <p class="table-card-subtitle">Manage system administrators and their permissions</p>
+        </div>
+        <div class="table-search">
+            <i class="bi bi-search"></i>
+            <input type="text" id="searchInput" placeholder="Search admins...">
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Admin Details</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Created By</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="adminTableBody">
+                @forelse($admins as $admin)
+                <tr>
+                    <td class="td-id">{{ $admin->id }}</td>
                     <td>
-					<a href="{{url('admin/admin/edit/' . $admin->id)}}" class="btn btn-outline-success">Edit</a>
-					<a href="{{url('admin/admin/delete/' . $admin->id)}}" class="btn btn-outline-danger">Delete</button>
-								
-					<td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-					<div class="collapse collapse-box" id="striped-table">
-						<div class="code-box">
-							<div class="clearfix">
-								<a href="javascript:;" class="btn btn-primary btn-sm code-copy pull-left"  data-clipboard-target="#striped-table-code"><i class="fa fa-clipboard"></i> Copy Code</a>
-								<a href="#striped-table" class="btn btn-primary btn-sm pull-right" rel="content-y"  data-toggle="collapse" role="button"><i class="fa fa-eye-slash"></i> Hide Code</a>
-							</div>
-							<pre><code class="xml copy-pre" id="striped-table-code">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-    </tr>
-  </tbody>
-</table>
-							</code></pre>
-						</div>
-					</div>
-				</div>
-                
+                        <div class="user-cell">
+                            <div class="user-avatar-small">
+                                {{ strtoupper(substr($admin->name, 0, 2)) }}
+                            </div>
+                            <div>
+                                <div class="user-name-small">{{ $admin->name }}</div>
+                                <div class="user-role-small">Administrator</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="email-text">{{ $admin->email }}</span>
+                    </td>
+                    <td>
+                        <span class="phone-text">{{ $admin->telephone }}</span>
+                    </td>
+                    <td>
+                        <span class="created-by-text">{{ $admin->created_by }}</span>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <a href="{{ url('admin/admin/edit/' . $admin->id) }}" 
+                               class="btn-action btn-edit" 
+                               title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="{{ url('admin/admin/delete/' . $admin->id) }}" 
+                               class="btn-action btn-delete" 
+                               title="Delete"
+                               onclick="return confirm('Are you sure you want to delete this admin?')">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="6" class="text-center py-5">
+                        <div class="empty-state">
+                            <i class="bi bi-inbox"></i>
+                            <p>No administrators found</p>
+                            <a href="/admin/admin/add" class="btn-modern btn-primary btn-sm">
+                                Add First Admin
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 
-
-
-
+    <!-- Pagination -->
+    @if($admins->hasPages())
+    <div class="table-card-footer">
+        <div class="pagination-info">
+            Showing {{ $admins->firstItem() }} to {{ $admins->lastItem() }} of {{ $admins->total() }} entries
+        </div>
+        <div class="pagination-modern">
+            {{ $admins->links() }}
+        </div>
+    </div>
+    @endif
 </div>
-</div>
+
 @endsection
 
-
-							
-
-
+@push('scripts')
+<script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const searchValue = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll('#adminTableBody tr');
+        
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchValue) ? '' : 'none';
+        });
+    });
+</script>
+@endpush
