@@ -1,61 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Church Data Collection System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A centralized data collection and reporting system for churches under a main headquarters (HQ).  
+This system helps churches track contributions, manage population data, generate accurate financial reports, and export data for analysis.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎯 Purpose
+Many churches face challenges in collecting contribution data from multiple branches and generating accurate reports.  
+This system solves that problem by providing a **centralized platform** for:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Tracking congregation population
+- Recording contributions and donations
+- Calculating totals and statistics automatically
+- Generating both **graphical and tabular financial reports**
+- Exporting data to Excel for offline use
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Video Demo: https://www.linkedin.com/feed/update/urn:li:activity:7392990228203876352/ 
 
-## Learning Laravel
+## 🛠 Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 📊 Data Management
+- Input congregation population per church branch
+- Record contributions per member
+- Supports recurring and one-time donations
+- Automatic calculation of totals, averages, and other key metrics
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📈 Reporting
+- Generate **financial reports** per church or consolidated across branches
+- **Graphical visualization**: bar charts, pie charts, line graphs
+- Export reports and contribution data to **Excel or CSV**
+- Historical data tracking
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔒 Security & Permissions
+- Role-based access: HQ administrators, branch managers, data entry clerks
+- Data privacy: Each church can only view its own data
 
-## Laravel Sponsors
+### 💻 Technology Stack
+- Backend: Laravel / PHP
+- Frontend: Blade templates, Bootstrap
+- Database: MySQL 
+- Exports: PhpSpreadsheet for Excel export
+- Charts: Chart.js for graphical reporting
+- Authentication: Laravel built-in authentication with role-based access
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🚀 Installation / Setup
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/church-data-collection.git
+cd church-data-collection
+Install dependencies:
 
-## Contributing
+bash
+Copy code
+composer install
+npm install
+npm run build
+Configure environment:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+bash
+Copy code
+cp .env.example .env
+Set your database credentials
 
-## Code of Conduct
+Set your mail configuration if needed
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Set any other API keys
 
-## Security Vulnerabilities
+Run migrations and seed initial data:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+bash
+Copy code
+php artisan migrate --seed
+Start the development server:
 
-## License
+bash
+Copy code
+php artisan serve
+Visit http://localhost:8000 in your browser
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+📂 Project Structure
+php
+Copy code
+app/
+├─ Http/
+│  ├─ Controllers/         # Handles requests and business logic
+│  └─ Middleware/          # Role-based access control
+├─ Models/                 # Eloquent models
+resources/
+├─ views/                  # Blade templates for frontend
+public/
+├─ js/ and css/             # Scripts and styles
+database/
+├─ migrations/             # Table structure
+└─ seeders/                # Sample data
+📊 Screenshots / Demo
+(Add screenshots of dashboards, graphs, and Excel export here)
+
+🤝 Contributing
+Fork the repo
+
+Create your feature branch (git checkout -b feature/new-feature)
+
+Commit your changes (git commit -m 'Add new feature')
+
+Push to branch (git push origin feature/new-feature)
+
+Open a Pull Request
+
+📫 Contact
+Developer: Allan Murimi
+
+Email: allanmurimi96@gmail.com
+
+LinkedIn: Allan Murimi
+
+⚡ Key Benefits
+Saves time for HQ and branch staff by automating calculations
+
+Provides accurate and consolidated financial reports
+
+Helps leadership make data-driven decisions
+
+Easy export and sharing of contribution data
+
+
+
+
+
+
+
+
