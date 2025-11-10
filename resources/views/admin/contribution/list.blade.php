@@ -1,104 +1,158 @@
-@extends('layout.app')
+@extends('layout.app1')
 
-@section('title', 'ContributionCategories')
+@section('title', 'Contribution Categories')
 
+@section('main')
 
-@section('content')
+@include('_message')
 
-@include('_message') 
-
-<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<div class="title">
-								<h4>Contribution Category List</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page"> Contribution Category List</li>
-								</ol>
-							</nav>
-						</div>
-						<div class="col-md-6 col-sm-12 text-right">
-							<div class="dropdown">
-								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									Add Contribution Category
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="/admin/contribution/add">Add Contribution Category</a>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-                <div>
+<!-- Page Header -->
+<div class="page-header-modern">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h4 class="page-title">Contribution Category List</h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb-modern">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">Contribution Category List</li>
+                </ol>
+            </nav>
+        </div>
+        <div>
+            <a href="/admin/contribution/add" class="btn-modern btn-primary">
+                <i class="bi bi-plus-circle"></i>
+                Add Contribution Category
+            </a>
+        </div>
+    </div>
 </div>
-</div>
-                
 
-                <div class="pd-20 card-box mb-30">
-					<div class="clearfix mb-20">
-						<div class="pull-left">
-							<h4 class="text-blue h4">Cotribution Category List</h4>
-							
-						</div>
-						
-					</div>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">Category Name</th>
-								<th scope="col">Created By</th>
-								<th scope="col">Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach($contributions as $contribution)
-							<tr>
-					<td>{{ $contribution ->id }}</td>
-                    <td>{{ $contribution->name }}</td>
-                    <td>{{ $contribution->creator->created_by }}</td>
+<!-- Stats Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card-small">
+            <div class="stat-icon-small blue">
+                <i class="bi bi-cash-stack"></i>
+            </div>
+            <div>
+                <div class="stat-value-small">{{ $contributions->count() }}</div>
+                <div class="stat-label-small">Total Categories</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card-small">
+            <div class="stat-icon-small green">
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <div>
+                <div class="stat-value-small">{{ $contributions->where('status', 'active')->count() ?? $contributions->count() }}</div>
+                <div class="stat-label-small">Active Categories</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contribution Categories Table Card -->
+<div class="table-card">
+    <div class="table-card-header">
+        <div>
+            <h5 class="table-card-title">Contribution Categories</h5>
+            <p class="table-card-subtitle">Manage contribution categories and types</p>
+        </div>
+        <div class="table-search">
+            <i class="bi bi-search"></i>
+            <input type="text" id="searchInput" placeholder="Search categories...">
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Category Name</th>
+                    <th>Created By</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contributionTableBody">
+                @forelse($contributions as $contribution)
+                <tr>
+                    <td class="td-id">{{ $contribution->id }}</td>
                     <td>
-					<a href="{{url('admin/contribution/edit/' . $contribution->id)}}" class="btn btn-outline-success">Edit</a>
-					<a href="{{url('admin/contribution/delete/' . $contribution->id)}}" class="btn btn-outline-danger">Delete</button>
-								
-					<td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-					<div class="collapse collapse-box" id="striped-table">
-						<div class="code-box">
-							<div class="clearfix">
-								<a href="javascript:;" class="btn btn-primary btn-sm code-copy pull-left"  data-clipboard-target="#striped-table-code"><i class="fa fa-clipboard"></i> Copy Code</a>
-								<a href="#striped-table" class="btn btn-primary btn-sm pull-right" rel="content-y"  data-toggle="collapse" role="button"><i class="fa fa-eye-slash"></i> Hide Code</a>
-							</div>
-							<pre><code class="xml copy-pre" id="striped-table-code">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-    </tr>
-  </tbody>
-</table>
-							</code></pre>
-						</div>
-					</div>
-				</div>
-                
+                        <div class="user-cell">
+                            <div class="user-avatar-small">
+                                {{ strtoupper(substr($contribution->name, 0, 2)) }}
+                            </div>
+                            <div>
+                                <div class="user-name-small">{{ $contribution->name }}</div>
+                                <div class="user-role-small">Contribution Category</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="created-by-text">{{ $contribution->created_by ?? 'System' }}</span>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <a href="{{ url('admin/contribution/edit/' . $contribution->id) }}" 
+                               class="btn-action btn-edit" 
+                               title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="{{ url('admin/contribution/delete/' . $contribution->id) }}" 
+                               class="btn-action btn-delete" 
+                               title="Delete"
+                               onclick="return confirm('Are you sure you want to delete this contribution category?')">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="4" class="text-center py-5">
+                        <div class="empty-state">
+                            <i class="bi bi-inbox"></i>
+                            <p>No contribution categories found</p>
+                            <a href="/admin/contribution/add" class="btn-modern btn-primary btn-sm">
+                                Add First Category
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 
-
-
-
+    <!-- Pagination -->
+    @if($contributions->hasPages())
+    <div class="table-card-footer">
+        <div class="pagination-info">
+            Showing {{ $contributions->firstItem() }} to {{ $contributions->lastItem() }} of {{ $contributions->total() }} entries
+        </div>
+        <div class="pagination-modern">
+            {{ $contributions->links() }}
+        </div>
+    </div>
+    @endif
 </div>
-</div>
+
 @endsection
+
+@push('scripts')
+<script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const searchValue = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll('#contributionTableBody tr');
+        
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchValue) ? '' : 'none';
+        });
+    });
+</script>
+@endpush

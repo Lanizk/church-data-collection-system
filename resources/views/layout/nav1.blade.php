@@ -40,11 +40,11 @@
 
             <div class="menu-section">
                 <div class="menu-title">Data Management</div>
-                <a href="#" class="menu-item">
+                <a href="/admin/contribution/list" class="menu-item">
                     <i class="bi bi-cash-stack"></i>
                     Contribution Categories
                 </a>
-                <a href="#" class="menu-item">
+                <a href="/admin/population/list" class="menu-item">
                     <i class="bi bi-people-fill"></i>
                     Population Categories
                 </a>
@@ -116,37 +116,22 @@
             {{-- Parish Sidebar (same for now) --}}
             <div class="menu-section">
                 <div class="menu-title">Main</div>
-                <a href="#" class="menu-item active">
+                <a href="/parish/dashboard" class="menu-item active">
                     <i class="bi bi-speedometer2"></i>
                     Dashboard
                 </a>
             </div>
 
-            <div class="menu-section">
-                <div class="menu-title">Users</div>
-                <a href="/admin/admin/list" class="menu-item">
-                    <i class="bi bi-shield-check"></i>
-                    Admin
-                </a>
-                <a href="/admin/accountant/list" class="menu-item">
-                    <i class="bi bi-calculator"></i>
-                    Accountant
-                </a>
-                <a href="/admin/parish/list" class="menu-item">
-                    <i class="bi bi-building"></i>
-                    Parish
-                </a>
-            </div>
 
             <div class="menu-section">
                 <div class="menu-title">Data Management</div>
-                <a href="#" class="menu-item">
+                <a href="/parish/submit" class="menu-item">
                     <i class="bi bi-cash-stack"></i>
-                    Contribution Categories
+                    Send Data
                 </a>
-                <a href="#" class="menu-item">
+                <a href="/parish/submissions" class="menu-item">
                     <i class="bi bi-people-fill"></i>
-                    Population Categories
+                    View Submissions
                 </a>
             </div>
 

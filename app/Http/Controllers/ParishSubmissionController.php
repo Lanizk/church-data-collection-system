@@ -50,17 +50,19 @@ class ParishSubmissionController extends Controller
 
 
     public function showDataSubmissions()
-    {
-        $parishId=auth()->user()->id;
+{
+    $parishId = auth()->user()->id;
 
-        $populationData=PopulationSubmission::with('category')
-                       ->where('parish_id', $parishId)
-                       ->get();
+   
+    $populationData = PopulationSubmission::with('category')
+                        ->where('parish_id', $parishId)
+                        ->paginate(10); // 10 items per page
 
-        $fundData=FundSubmission::with('category')
-                       ->where('parish_id', $parishId)
-                       ->get();    
-                       
-        return view('parish.submissionsview', compact('populationData', 'fundData'));
-    }
+    $fundData = FundSubmission::with('category')
+                    ->where('parish_id', $parishId)
+                    ->paginate(10);
+
+    return view('parish.submissionsview', compact('populationData', 'fundData'));
+}
+
 }

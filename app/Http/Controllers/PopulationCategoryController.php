@@ -9,11 +9,13 @@ use App\Models\PopulationCategory;
 
 class PopulationCategoryController extends Controller
 {
-    public function list(){
-        
-        $populations=PopulationCategory::with('creator')->orderBy('name')->get();
-        return view('admin.population.list',compact('populations'));
-    }
+   public function list(){
+    $populations = PopulationCategory::with('creator')
+                    ->orderBy('name')
+                    ->paginate(10); // 10 items per page
+    return view('admin.population.list', compact('populations'));
+}
+
 
     public function add(){
 

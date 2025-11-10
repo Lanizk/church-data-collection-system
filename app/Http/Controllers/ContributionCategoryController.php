@@ -12,11 +12,11 @@ class ContributionCategoryController extends Controller
 {
     
 
-      public function list(){
-        
-        $contributions = ContributionCategory::with('creator')->orderBy('name')->get();
-        return view('admin.contribution.list',compact('contributions'));
-    }
+     public function list() {
+    $contributions = ContributionCategory::with('creator')->orderBy('name')->paginate(10); // 10 items per page
+    return view('admin.contribution.list', compact('contributions'));
+}
+
 
      public function add(){
 

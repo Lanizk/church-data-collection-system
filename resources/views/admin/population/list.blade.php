@@ -1,104 +1,158 @@
-@extends('layout.app')
+@extends('layout.app1')
 
-@section('title', 'Population')
+@section('title', 'Population List')
 
+@section('main')
 
-@section('content')
+@include('_message')
 
-@include('_message') 
-
-<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<div class="title">
-								<h4>population List</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Population List</li>
-								</ol>
-							</nav>
-						</div>
-						<div class="col-md-6 col-sm-12 text-right">
-							<div class="dropdown">
-								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									Add Population category
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="/admin/population/add">Add Population category</a>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-                <div>
+<!-- Page Header -->
+<div class="page-header-modern">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h4 class="page-title">Population List</h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb-modern">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">Population List</li>
+                </ol>
+            </nav>
+        </div>
+        <div>
+            <a href="/admin/population/add" class="btn-modern btn-primary">
+                <i class="bi bi-plus-circle"></i>
+                Add Population Category
+            </a>
+        </div>
+    </div>
 </div>
-</div>
-                
 
-                <div class="pd-20 card-box mb-30">
-					<div class="clearfix mb-20">
-						<div class="pull-left">
-							<h4 class="text-blue h4">population List</h4>
-							
-						</div>
-						
-					</div>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">population Category</th>
-								<th scope="col">Created By</th>
-								<th scope="col">Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach($populations as $population)
-							<tr>
-					<td>{{ $population ->id }}</td>
-                    <td>{{ $population->name }}</td>
-                    <td>{{ $population->creator->created_by }}</td>
+<!-- Stats Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card-small">
+            <div class="stat-icon-small blue">
+                <i class="bi bi-people"></i>
+            </div>
+            <div>
+                <div class="stat-value-small">{{ $populations->count() }}</div>
+                <div class="stat-label-small">Total Categories</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card-small">
+            <div class="stat-icon-small green">
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <div>
+                <div class="stat-value-small">{{ $populations->where('status', 'active')->count() ?? $populations->count() }}</div>
+                <div class="stat-label-small">Active Categories</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Population Table Card -->
+<div class="table-card">
+    <div class="table-card-header">
+        <div>
+            <h5 class="table-card-title">Population Categories</h5>
+            <p class="table-card-subtitle">Manage population categories and classifications</p>
+        </div>
+        <div class="table-search">
+            <i class="bi bi-search"></i>
+            <input type="text" id="searchInput" placeholder="Search categories...">
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Category Name</th>
+                    <th>Created By</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="populationTableBody">
+                @forelse($populations as $population)
+                <tr>
+                    <td class="td-id">{{ $population->id }}</td>
                     <td>
-					<a href="{{url('admin/population/edit/' . $population->id)}}" class="btn btn-outline-success">Edit</a>
-					<a href="{{url('admin/population/delete/' . $population->id)}}" class="btn btn-outline-danger">Delete</button>
-								
-					<td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-					<div class="collapse collapse-box" id="striped-table">
-						<div class="code-box">
-							<div class="clearfix">
-								<a href="javascript:;" class="btn btn-primary btn-sm code-copy pull-left"  data-clipboard-target="#striped-table-code"><i class="fa fa-clipboard"></i> Copy Code</a>
-								<a href="#striped-table" class="btn btn-primary btn-sm pull-right" rel="content-y"  data-toggle="collapse" role="button"><i class="fa fa-eye-slash"></i> Hide Code</a>
-							</div>
-							<pre><code class="xml copy-pre" id="striped-table-code">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-    </tr>
-  </tbody>
-</table>
-							</code></pre>
-						</div>
-					</div>
-				</div>
-                
+                        <div class="user-cell">
+                            <div class="user-avatar-small">
+                                {{ strtoupper(substr($population->name, 0, 2)) }}
+                            </div>
+                            <div>
+                                <div class="user-name-small">{{ $population->name }}</div>
+                                <div class="user-role-small">Population Category</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="created-by-text">{{ $population->created_by ?? 'System' }}</span>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <a href="{{ url('admin/population/edit/' . $population->id) }}" 
+                               class="btn-action btn-edit" 
+                               title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="{{ url('admin/population/delete/' . $population->id) }}" 
+                               class="btn-action btn-delete" 
+                               title="Delete"
+                               onclick="return confirm('Are you sure you want to delete this population category?')">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="4" class="text-center py-5">
+                        <div class="empty-state">
+                            <i class="bi bi-inbox"></i>
+                            <p>No population categories found</p>
+                            <a href="/admin/population/add" class="btn-modern btn-primary btn-sm">
+                                Add First Category
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 
-
-
-
+    <!-- Pagination -->
+    @if($populations->hasPages())
+    <div class="table-card-footer">
+        <div class="pagination-info">
+            Showing {{ $populations->firstItem() }} to {{ $populations->lastItem() }} of {{ $populations->total() }} entries
+        </div>
+        <div class="pagination-modern">
+            {{ $populations->links() }}
+        </div>
+    </div>
+    @endif
 </div>
-</div>
+
 @endsection
+
+@push('scripts')
+<script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const searchValue = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll('#populationTableBody tr');
+        
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchValue) ? '' : 'none';
+        });
+    });
+</script>
+@endpush
